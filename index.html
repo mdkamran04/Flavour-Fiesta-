@@ -3,33 +3,55 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ff6b6b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Flavour Fiesta</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
         <nav>
-            <h1>Flavour Fiesta </h1>
+            <h1>Flavour Fiesta</h1>
             <form id="form">
                 <input type="text" placeholder="Search a recipe ..." class="searchbox">
-                <button type="submit" class="searchbutton"> Search </button>
+                <button type="submit" class="searchbutton"><i class="fas fa-search"></i> Search</button>
             </form>
         </nav>
     </header>
     <main>
-        <section>
-            <div class="recipe-container">
-                <h2>Search for your favourite meals here</h2>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Discover Delicious Recipes</h2>
+                <p>Find and share amazing recipes from around the world</p>
+                <div class="hero-cta">
+                    <button class="cta-button">Popular Recipes</button>
+                    <button class="cta-button secondary">Share Your Recipe</button>
+                </div>
             </div>
+            <div class="hero-image">
+                <div class="floating-card card1"><i class="fas fa-utensils"></i></div>
+                <div class="floating-card card2"><i class="fas fa-carrot"></i></div>
+                <div class="floating-card card3"><i class="fas fa-pizza-slice"></i></div>
+            </div>
+        </section>
+        <section class="recipes-section">
+            <h2 class="section-title">Explore Recipes</h2>
+            <div class="recipe-container">
+                <h3 class="search-prompt">Search for your favourite meals above</h3>
+            </div>
+            <div class="overlay"></div>
             <div class="recipe-details">
                 <button type="button" class="recipe-closeBtn">
                     <i class="fa-solid fa-xmark"></i>
-
                 </button>
                 <div class="recipe-content"></div>
             </div>
