@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: #ff6b6b;
+    --primary-color: #69f062;
     --secondary-color: #4ecdc4;
     --accent-color: #ffd166;
     --dark-color: #2d3436;
@@ -28,7 +28,7 @@ body {
 }
 
 header nav {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(242, 102, 254, 0.9);
     color: var(--dark-color);
     padding: 20px 40px;
     display: flex;
@@ -940,4 +940,275 @@ section {
     .recipeName {
         font-size: 1.3rem;
     }
+}
+
+/* Premium Glassmorphism Theme Overrides */
+:root {
+    --bg-start: #0f1220;
+    --bg-end: #0a0d18;
+    --glass: rgba(255, 255, 255, 0.08);
+    --glass-strong: rgba(255, 255, 255, 0.12);
+    --stroke: rgba(255, 255, 255, 0.18);
+    --text-primary: #f5f7ff;
+    --text-secondary: #c9cde8;
+    --accent: #7c3aed; /* purple */
+    --accent-2: #06b6d4; /* cyan */
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    --shadow-soft: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+body {
+    background: radial-gradient(1200px 600px at 20% 10%, rgba(124, 58, 237, 0.15), transparent 60%),
+                radial-gradient(1000px 500px at 80% 30%, rgba(6, 182, 212, 0.15), transparent 65%),
+                linear-gradient(160deg, var(--bg-start), var(--bg-end));
+    color: var(--text-primary);
+    background-attachment: fixed;
+}
+
+/* Ambient blurred blobs (non-interactive) */
+.bg-blur {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+.bg-blur.blur1::before,
+.bg-blur.blur2::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+}
+.bg-blur.blur1::before {
+    width: 380px;
+    height: 380px;
+    left: -80px;
+    top: 60px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.35), transparent 60%);
+}
+.bg-blur.blur2::before {
+    width: 420px;
+    height: 420px;
+    right: -120px;
+    bottom: 120px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.35), transparent 60%);
+}
+
+/* Header / Nav */
+header nav {
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--stroke);
+    box-shadow: var(--shadow);
+    border-radius: 18px;
+}
+
+header nav h1 {
+    color: var(--text-primary);
+    letter-spacing: 0.4px;
+}
+
+header nav form {
+    background: transparent;
+}
+
+.searchbox {
+    background: var(--glass);
+    color: var(--text-primary);
+    border: 1px solid var(--stroke);
+    border-radius: 14px;
+    box-shadow: var(--shadow-soft);
+}
+.searchbox::placeholder { color: var(--text-secondary); }
+.focused .searchbox {
+    outline: none;
+    border-color: rgba(124, 58, 237, 0.5);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+header nav form button,
+.searchbutton {
+    background: linear-gradient(180deg, rgba(124, 58, 237, 0.9), rgba(124, 58, 237, 0.7));
+    color: #fff;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+header nav form button:hover,
+.searchbutton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.35);
+}
+
+/* Hero */
+.hero-section {
+    background: var(--glass);
+    border: 1px solid var(--stroke);
+    border-radius: 24px;
+    backdrop-filter: blur(16px);
+    box-shadow: var(--shadow);
+}
+.hero-content h2 {
+    color: var(--text-primary);
+}
+.hero-content p {
+    color: var(--text-secondary);
+}
+.hero-cta .cta-button {
+    background: linear-gradient(180deg, rgba(124, 58, 237, 0.85), rgba(124, 58, 237, 0.65));
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    color: #fff;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+.hero-cta .cta-button.secondary {
+    background: linear-gradient(180deg, rgba(6, 182, 212, 0.85), rgba(6, 182, 212, 0.6));
+    border: 1px solid rgba(6, 182, 212, 0.3);
+}
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(6, 182, 212, 0.3);
+}
+
+/* Floating chips */
+.floating-card {
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--stroke);
+    border-radius: 16px;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Section heading */
+.section-title {
+    color: var(--text-primary);
+}
+
+/* Recipe list */
+.recipe-container {
+    gap: 28px;
+}
+.recipeBox {
+    background: var(--glass);
+    border: 1px solid var(--stroke);
+    border-radius: 20px;
+    backdrop-filter: blur(16px);
+    box-shadow: var(--shadow);
+    color: var(--text-primary);
+}
+.recipeBox h3 { color: var(--text-primary); }
+.recipeBox p { color: var(--text-secondary); }
+.recipeBox img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.recipeBox button {
+    background: linear-gradient(180deg, rgba(124, 58, 237, 0.85), rgba(124, 58, 237, 0.65));
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+}
+.recipeBox:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Popup */
+.overlay {
+    background: rgba(10, 12, 20, 0.55);
+    backdrop-filter: blur(2px);
+}
+.recipe-details {
+    background: var(--glass-strong);
+    border: 1px solid var(--stroke);
+    border-radius: 20px;
+    backdrop-filter: blur(18px);
+    box-shadow: var(--shadow);
+}
+.recipe-content {
+    color: var(--text-primary);
+}
+.recipeName { color: var(--text-primary); }
+.ingredientsList li { color: var(--text-secondary); }
+.recipeInstructions { color: var(--text-secondary); }
+.recipe-closeBtn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid var(--stroke);
+    color: var(--text-primary);
+}
+
+.video-link {
+    background: linear-gradient(180deg, rgba(229, 57, 53, 0.9), rgba(229, 57, 53, 0.7));
+    border: 1px solid rgba(229, 57, 53, 0.35);
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+}
+.video-link:hover {
+    box-shadow: 0 12px 30px rgba(229, 57, 53, 0.35);
+}
+
+/* Loading + empty states */
+.loading, .no-results {
+    color: var(--text-secondary);
+}
+
+/* Subtle gap between navbar and hero */
+header {
+    margin-bottom: clamp(12px, 2.5vw, 24px);
+}
+
+/* Even Card Sizing + Hero Glow (Overrides) */
+.recipeBox {
+    display: flex;
+    flex-direction: column;
+    min-height: 360px;
+}
+.recipeBox img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+}
+.recipeBox button {
+    margin-top: auto;
+}
+.recipeBox h3,
+.recipeBox p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.recipeBox h3 { -webkit-line-clamp: 2; }
+.recipeBox p { -webkit-line-clamp: 1; }
+
+.hero-section {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.12));
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.25), var(--shadow);
+}
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: inherit;
+    background: radial-gradient(600px 200px at 30% 0%, rgba(124, 58, 237, 0.25), transparent 60%),
+                radial-gradient(600px 200px at 70% 0%, rgba(6, 182, 212, 0.25), transparent 60%);
+    filter: blur(40px);
+    z-index: -1;
+}
+.hero-content h2 {
+    text-shadow: 0 0 14px rgba(124, 58, 237, 0.35), 0 0 8px rgba(6, 182, 212, 0.25);
+}
+
+@media screen and (max-width: 480px) {
+    .recipeBox { min-height: 320px; }
+    .recipeBox img { height: 160px; }
+}
+@media screen and (max-width: 375px) {
+    .recipeBox { min-height: 300px; }
+    .recipeBox img { height: 150px; }
 }
